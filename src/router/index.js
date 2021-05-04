@@ -13,8 +13,11 @@ const routes = [
   {
     path:'/text',
     component:() => import('../views/text')
+  },
+  {
+    path:'/add',
+    component:() => import('../views/add')
   }
-  
 ]
 
 const router = new VueRouter({

@@ -27,7 +27,7 @@ export default {
       let carid = this.carid;
       this.$http
         .post(
-          "/api/stopcar/addUser",
+          "/api/stopcar/add",
           {
             time,
             carid,
@@ -42,7 +42,7 @@ export default {
       // ! 这里不能在浏览器控制台里面打印出来，但是在服务端(cmd中或者power shell)可以打印出来，可以在服务端将值保存在 vuex 中
 
       this.$http
-        .get("/api/stopcar/getUser")
+        .get("/api/stopcar/show")
         .then((response) => {
           console.log(response);
         })
@@ -63,3 +63,5 @@ a {
   color: #42b983;
 }
 </style>
+
+
