@@ -16,8 +16,6 @@
         <span>闲置车位数量:</span><span>{{ z-x }}</span><br/>
         <span>位置:</span><span>{{ weizhi }}</span><br/>
         <span>时间:</span><span>{{ t }}</span><br/>
-
-
         <h1>{{ place }}</h1>
         <form>
           <a href="javascript:;" @click="addUser">提交</a> <br />
@@ -32,7 +30,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
 export default {
   name: 'Home',
@@ -45,6 +42,7 @@ export default {
       x:0,
       z:14,
       place:[],
+      timer:''
     };
   },
 
@@ -60,6 +58,7 @@ export default {
     msg: String,
   },
   methods: {
+
     addUser() {
       let time = this.time;
       let carid = this.carid;
@@ -114,7 +113,7 @@ export default {
         });
     },
 
-       add() {
+    add() {
         let q = document.getElementById('q')
         var list =q.getElementsByTagName("div"); //获取div元素
         var rel = [];
@@ -129,6 +128,14 @@ export default {
       // console.log(rel);
     },
   },
+
+  mounted() {
+    this.timer = setInterval(this.getUser, 3000);
+  },
+
+  beforeDestroy() {
+    clearInterval(this.timer);
+  }
 }
 </script>
 <style scoped>
